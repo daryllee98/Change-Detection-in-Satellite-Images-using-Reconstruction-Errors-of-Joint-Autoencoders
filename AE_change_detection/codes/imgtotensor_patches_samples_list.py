@@ -1,6 +1,6 @@
 import numpy as np
 from torch.utils.data.dataset import Dataset
-np.set_printoptions(threshold=np.nan)
+np.set_printoptions(threshold=sys.maxsizegit )
 import pandas as pd
 import torch
 
