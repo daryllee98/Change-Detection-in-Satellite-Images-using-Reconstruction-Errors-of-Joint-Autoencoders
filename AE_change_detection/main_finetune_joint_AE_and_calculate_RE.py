@@ -308,8 +308,8 @@ def train(epoch):
     total_loss21 = 0
     for batch_idx, (data1, data2, _) in enumerate(loader):  #we load batches from model
         if gpu:
-            data1 = data1.cuda(async=True)
-            data2 = data2.cuda(async=True)
+            data1 = data1.cuda(non_blocking=True)
+            data2 = data2.cuda(non_blocking=True)
 
         encoded12 = encoder12(Variable(data1))
         encoded21 = encoder21(Variable(data2))
