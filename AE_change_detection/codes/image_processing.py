@@ -79,8 +79,8 @@ def encode_image(encoder, loader, batch_size, nb_features, gpu, H, W, geo, proj,
     new_coordinates = np.empty((0, nb_features), float)
     for batch_idx, (data, index) in enumerate(loader):
         if gpu:
-            data = data.cuda(async=True)
-            index = index.cuda(async=True)
+            data = data.cuda(non_blocking=True)
+            index = index.cuda(non_blocking=True)
         encoded = encoder(Variable(data))
         if gpu:
             new_coordinates_batch = encoded[0].data.cpu().numpy()
