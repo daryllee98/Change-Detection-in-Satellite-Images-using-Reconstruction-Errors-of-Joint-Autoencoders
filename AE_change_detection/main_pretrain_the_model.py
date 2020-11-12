@@ -180,7 +180,7 @@ def train(epoch):
     total_loss = 0
     for batch_idx, (data, _, _) in enumerate(loader):
         if gpu:
-            data = data.cuda(async=True)
+            data = data.cuda(non_blocking=True)
         encoded = encoder(Variable(data))
         decoded = decoder(encoded)
 
