@@ -69,6 +69,7 @@ create_dir(path_model)
 # We open all the images of time series images and mirror the borders.
 # Then we create 4D array with all the images of the dataset
 images_list = os.listdir(path_datasets)
+print(images_list)
 path_list = []
 list_image_extended= []
 for image_name_with_extention in images_list:
