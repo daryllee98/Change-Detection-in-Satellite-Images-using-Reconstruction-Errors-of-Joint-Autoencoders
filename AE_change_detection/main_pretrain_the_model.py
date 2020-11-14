@@ -60,7 +60,7 @@ print (run_name)
 # We define the input and output paths
 folder_results = "All_images_ep_" + str(epoch_nb) + "_patch_" + str(patch_size) +"_fc"+ run_name
 path_results = os.path.expanduser('./'+str(satellite)+'_all_images_model_pretrained/') + folder_results + "/"
-path_datasets = os.path.expanduser('../../../input/mauritius-dataset/data_split/train/images/')
+path_datasets = os.path.expanduser('../../../input/mauritius-dataset/tif-files/')
 create_dir(path_results)
 path_model = path_results + 'model'+run_name+"/" #we will save the pretrained encoder/decoder models here
 create_dir(path_model)
