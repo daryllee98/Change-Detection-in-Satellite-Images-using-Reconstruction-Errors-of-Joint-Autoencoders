@@ -428,4 +428,4 @@ for best_epoch in range(1, epoch_nb+1):
     dst_ds = None
 
     #Here we calculate change map using otsu threshold on the average reconstruction error image
-    otsu(image_array_loss1, image_array_loss2, H, W, geo, proj, path_results, image_date1 + "_to_" + image_date2, changes="changes_2004_2005")
+    otsu(image_array_loss1, image_array_loss2, H, W, geo, proj, path_results, image_date1 + "_to_" + image_date2, changes=None)
