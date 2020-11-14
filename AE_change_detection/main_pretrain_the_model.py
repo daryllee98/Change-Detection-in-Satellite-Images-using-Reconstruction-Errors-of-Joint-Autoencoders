@@ -89,6 +89,7 @@ for image_name_with_extention in images_list:
                     bands_nb = 6
             if satellite == "S2":
                 image_array = np.delete(image_array, 0, axis=0)
+                print(np.shape(image_array))
         image_extended = extend(image_array, patch_size)    # We mirror the border rows and cols
         list_image_extended.append(image_extended)
 list_image_extended = np.asarray(list_image_extended, dtype=float)
@@ -96,7 +97,7 @@ list_image_extended = np.asarray(list_image_extended, dtype=float)
 
 # We normalize all the images from 0 to 1 (1 is the max value of the whole dataset, not an individual image)
 list_norm = []
-print(len(list_image_extended))
+print(len(list_image_extended[0]))
 for band in range(len(list_image_extended[0])):
     all_images_band = list_image_extended[:, band, :, :].flatten()
     min = np.min(all_images_band)

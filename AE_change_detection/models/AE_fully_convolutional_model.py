@@ -17,7 +17,8 @@ import torch.nn.functional as F
 
 #1st Autoencoder
 class Encoder(nn.Module):
-    def __init__(self, bands_nb, patch_size, nb_features):
+    #def __init__(self, bands_nb, patch_size, nb_features):
+    def __init__(self, bands_nb, patch_size):
         input_size = (bands_nb, patch_size, patch_size)
 
         super(Encoder, self).__init__()
@@ -53,7 +54,8 @@ class Encoder(nn.Module):
 
 
 class Decoder(nn.Module):
-    def __init__(self, bands_nb, patch_size, nb_features):
+    #def __init__(self, bands_nb, patch_size, nb_features):
+    def __init__(self, bands_nb, patch_size):
         input_size = (bands_nb, patch_size, patch_size)
 
         super(Decoder, self).__init__()
