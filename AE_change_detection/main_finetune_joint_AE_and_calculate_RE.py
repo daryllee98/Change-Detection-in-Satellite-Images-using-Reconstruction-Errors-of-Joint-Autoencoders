@@ -43,10 +43,10 @@ print (run_name)
 
 #Here are the names of the couples of images
 # #Sentinel2 image
-image_name1 = '20200707'
-image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-image_name2 = '20200906'
-image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
+image_date1 = '20200707'
+#image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
+image_date2 = '20200906'
+#image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
 
 
 
