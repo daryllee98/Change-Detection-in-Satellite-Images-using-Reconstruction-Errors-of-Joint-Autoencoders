@@ -1,6 +1,5 @@
 import numpy as np
 from torch.utils.data.dataset import Dataset
-np.set_printoptions(threshold=np.nan)
 import pandas as pd
 import torch
 
