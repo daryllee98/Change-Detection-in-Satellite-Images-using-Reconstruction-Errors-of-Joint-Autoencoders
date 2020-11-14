@@ -46,7 +46,7 @@ print (run_name)
 image_name1 = '20200707'
 image_date1 = image_name1
 #image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-image_name2 = '20200906'
+image_name2 = '20200806'
 image_date2 = image_name2
 #image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
 
