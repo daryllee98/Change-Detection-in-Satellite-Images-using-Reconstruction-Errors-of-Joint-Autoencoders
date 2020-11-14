@@ -49,7 +49,7 @@ learning_rate = 0.0005
 weighted = False    # if we weight patches loss (center pixel has higher loss)
 sigma = 2           # sigma for weighted loss
 shuffle = True      # shuffle patches before training
-satellite = "SPOT5" # ["SPOT5", "S2"]
+satellite = "S2" # ["SPOT5", "S2"]
 
 
 start_time = time.clock()
@@ -60,7 +60,7 @@ print (run_name)
 # We define the input and output paths
 folder_results = "All_images_ep_" + str(epoch_nb) + "_patch_" + str(patch_size) +"_fc"+ run_name
 path_results = os.path.expanduser('./'+str(satellite)+'_all_images_model_pretrained/') + folder_results + "/"
-path_datasets = os.path.expanduser('../../../input/mauritius-dataset/data_split/train/')
+path_datasets = os.path.expanduser('../../../input/mauritius-dataset/data_split/train/images/')
 create_dir(path_results)
 path_model = path_results + 'model'+run_name+"/" #we will save the pretrained encoder/decoder models here
 create_dir(path_model)
@@ -94,6 +94,7 @@ list_image_extended = np.asarray(list_image_extended, dtype=float)
 
 # We normalize all the images from 0 to 1 (1 is the max value of the whole dataset, not an individual image)
 list_norm = []
+print(len(list_image_extended))
 for band in range(len(list_image_extended[0])):
     all_images_band = list_image_extended[:, band, :, :].flatten()
     min = np.min(all_images_band)
