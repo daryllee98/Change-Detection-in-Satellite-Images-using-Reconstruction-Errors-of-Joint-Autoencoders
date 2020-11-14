@@ -42,103 +42,19 @@ print (run_name)
 
 
 #Here are the names of the couples of images
-# #10m SPOT-5 image
-image_name1 = 'SPOT5_HRG1_XS_20021005_N1_SCENE_047_262'
+# #Sentinel2 image
+image_name1 = '20200707'
 image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-image_name2 = 'SPOT5_HRG1_XS_20030918_N1_SCENE_047_262_0'
+image_name2 = '20200906'
 image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-#
-# image_name1 = 'SPOT5_HRG1_XS_20030918_N1_SCENE_047_262_0'
-# image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# image_name2 = 'SPOT5_HRG1_XS_20040514_N1_SCENE_047_262'
-# image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # # #
-# # # #
-# image_name1 = 'SPOT5_HRG1_XS_20040514_N1_SCENE_047_262'
-# image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# image_name2 = 'SPOT5_HRG2_XS_20040822_N1_SCENE_047_262'
-# image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# # #
-# image_name1 = 'SPOT5_HRG2_XS_20040822_N1_SCENE_047_262'
-# image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# image_name2 = 'SPOT5_HRG2_XS_20050427_N1_SCENE_047_262_0'
-# image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# # #
-# # image_name1 = 'SPOT5_HRG2_XS_20050427_N1_SCENE_047_262_0'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG1_XS_20051201_N1_SCENE_047_262_0'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# #
-# # image_name1 = 'SPOT5_HRG1_XS_20051201_N1_SCENE_047_262_0'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20060218_N1_SCENE_047_261_9'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# # #
-# #
-# # image_name1 = 'SPOT5_HRG2_XS_20060218_N1_SCENE_047_261_9'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20060603_N1_SCENE_047_262_0'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# #
-# # image_name1 = 'SPOT5_HRG2_XS_20060603_N1_SCENE_047_262_0'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20070201_N1_SCENE_047_262_0'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# #
-# # image_name1 = 'SPOT5_HRG2_XS_20070201_N1_SCENE_047_262_0'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20070406_N1_SCENE_047_262'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# # #
-# # #
-# # image_name1 = 'SPOT5_HRG2_XS_20070406_N1_SCENE_047_262'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20080621_N1_SCENE_046_261_9'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# # #
-# # image_name1 = 'SPOT5_HRG2_XS_20080621_N1_SCENE_046_261_9'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20080821_N1_SCENE_047_262'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# # #
-# # image_name1 = 'SPOT5_HRG2_XS_20060218_N1_SCENE_047_261_9'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20070201_N1_SCENE_047_262_0'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# # #
-# # image_name1 = 'SPOT5_HRG2_XS_20070201_N1_SCENE_047_262_0'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20080621_N1_SCENE_046_261_9'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# # # #
-# # image_name1 = 'SPOT5_HRG2_XS_20060218_N1_SCENE_047_261_9'
-# # image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# # image_name2 = 'SPOT5_HRG2_XS_20080821_N1_SCENE_047_262'
-# # image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
-# # #
-# #
-# image_name1 = 'SPOT5_HRG1_XS_20040514_N1_SCENE_047_262'
-# image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-# image_name2 = 'SPOT5_HRG2_XS_20050427_N1_SCENE_047_262_0'
-# image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
+
 
 
 #Parameters
 
 #The parameters for the model
 patch_size = 5
-bands_to_keep = 3   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
+bands_to_keep = 4   # G, R, B and NIR band for Sentinel
 epoch_nb = 1
 batch_size = 150
 learning_rate = 0.00005
@@ -146,21 +62,24 @@ weighted = False    # if we weight patches loss (center pixel has higher loss)
 sigma = 2           # sigma for weighted loss
 shuffle = True      # shuffle patches before training
 sampleTrue = False  # if we train the model with all the patches or only with samles
-satellite = "SPOT5" # ["SPOT5", "S2"]
+satellite = "S2" # ["SPOT5", "S2"]
 
 
 # Path for pretrained model
-reference_model = "2019-04-23_1505" # unique "time" of the model
-epoch_model = 5     # best epoch
+reference_model = "2020-11-14_1505" # unique "time" of the model
+epoch_model = 1     # best epoch
 loss_model = 2.27e-05   #loss of the best epoch (taken from the .pkl file)
-path_models = os.path.expanduser('~/Desktop/Results/RESULTS_CHANGE_DETECTION/OUTLIERS/NN_Montpellier_SPOT5_all_images_model_pretrained/') # Path for all pretrained models
-folder_pretrained_results = "All_images_ep_5_patch_5_fc.2019-04-23_1505/" #folder for the concrete model
+# '../../../input/
+#path_models = os.path.expanduser('~/Desktop/Results/RESULTS_CHANGE_DETECTION/OUTLIERS/NN_Montpellier_SPOT5_all_images_model_pretrained/') # Path for all pretrained models
+#folder_pretrained_results = "All_images_ep_5_patch_5_fc.2019-04-23_1505/" #folder for the concrete model
 
+path_models = os.path.expanduser('../../../input/Change-Detection-in-Satellite-Images-using-Reconstruction-Errors-of-Joint-Autoencoders/AE_change_detection/S2_all_images_model_pretrained') # Path for all pretrained models
+folder_pretrained_results = "All_images_ep_5_patch_5_fc.2020-11-14_1635/" #folder for the concrete model
 
 # Input and output data paths
-path_datasets = os.path.expanduser('~/Desktop/Datasets/Montpellier_SPOT5_Clipped_relatively_normalized_03_02_mask_vegetation_water_mode_parts_2004_no_DOS1_/')
+path_datasets = os.path.expanduser('../../../input/mauritius-dataset/tif_files2/')
 folder_results = folder_pretrained_results + "Joint_AE_"+image_date1 + "_" +image_date2 + "_ep_" + str(epoch_nb) + "_patch_" + str(patch_size) + run_name
-path_results = os.path.expanduser('~/Desktop/Results/RESULTS_CHANGE_DETECTION/NN_Montpellier_'+str(satellite)+'_all_images_model_pretrained_/') + folder_results+"/"
+path_results = os.path.expanduser('./'+str(satellite)+'_all_images_model_pretrained_/') + folder_results+"/"
 create_dir(path_results)
 path_model_finetuned = path_results + 'model'+run_name+"/" #we will save the finutuned encoder/decoder models here
 create_dir(path_model_finetuned)
@@ -188,7 +107,7 @@ driver_shp = ogr.GetDriverByName("ESRI Shapefile")
 #We open a couple of images to detect changes
 image_array1, H, W, geo, proj, bands_nb = open_tiff(path_datasets, image_name1)
 image_array2, H, W, geo, proj, bands_nb = open_tiff(path_datasets, image_name2)
-if bands_to_keep == 3:
+if bands_to_keep == 4:
     if satellite == "SPOT5":
         if bands_nb==8:
             image_array1 = np.delete(image_array1, [3, 7], axis=0)
@@ -199,8 +118,10 @@ if bands_to_keep == 3:
             image_array2 = np.delete(image_array2, 3, axis=0)
             bands_nb = 3
     if satellite == "S2":
-        image_array1 = np.delete(image_array1, 0, axis=0)
-        image_array2 = np.delete(image_array2, 0, axis=0)
+        image_array1 = np.delete(image_array1, [0,4,5,6,8,9,10,11,12], axis=0)
+        image_array2 = np.delete(image_array2, [0,4,5,6,8,9,10,11,12], axis=0)
+        bands_nb = 4
+
 #We mirror the border rows and cols
 image_extended1 = extend(image_array1, patch_size).astype(float)
 image_extended2 = extend(image_array2, patch_size).astype(float)
@@ -211,17 +132,19 @@ images_list = os.listdir(path_datasets)
 path_list = []
 list_image_extended = []
 for image_name_with_extention in images_list:
-    if image_name_with_extention.endswith(".TIF") and not image_name_with_extention.endswith("band.TIF"):
+    if image_name_with_extention.endswith(".tif"):
         img_path = path_datasets + image_name_with_extention
         path_list.append(img_path)
         image_array, H, W, geo, proj, bands_nb = open_tiff(path_datasets, os.path.splitext(image_name_with_extention)[0])
         # We keep only essential bands if needed
-        if bands_to_keep==3:
+        if bands_to_keep==4:
             if satellite == "SPOT5":
                 image_array = np.delete(image_array, 3, axis=0)
                 bands_nb = 3
             if satellite == "S2":
-                image_array = np.delete(image_array, 0, axis=0)
+                image_array = np.delete(image_array, [0,4,5,6,8,9,10,11,12], axis=0) #delete the other 9 bands. S2 has 13 bands in total
+                bands_nb = 4
+        
         image_extended = extend(image_array, patch_size)
         list_image_extended.append(image_extended)
 list_image_extended = np.asarray(list_image_extended, dtype=float)
@@ -471,7 +394,7 @@ for best_epoch in range(1, epoch_nb+1):
 
     # We create a loss image in new coordinate system for reconstruction of 2nd image from the 1st
     image_array_loss1 = np.reshape(new_coordinates_loss_mean12, (H, W))
-    loss_image_mean = path_results + "Loss_mean_" + name_results12 + ".TIF"
+    loss_image_mean = path_results + "Loss_mean_" + name_results12 + ".tif"
     dst_ds = create_tiff(1, loss_image_mean, W, H, gdal.GDT_Float32, image_array_loss1, geo, proj)
     dst_ds = None
 
@@ -481,14 +404,14 @@ for best_epoch in range(1, epoch_nb+1):
     image_array = np.transpose(image_array_tr, (2, 0, 1))
     for b in range(len(list(image_array))):
         image_array[b] = image_array[b] * (list_norm[b][1] - list_norm[b][0]) + list_norm[b][0]
-    reprojected_image = path_results + "Encoded_decoded_" + name_results12 + ".TIF"
+    reprojected_image = path_results + "Encoded_decoded_" + name_results12 + ".tif"
     dst_ds = create_tiff(bands_nb, reprojected_image, W, H, gdal.GDT_Int16, image_array, geo, proj)
     dst_ds = None
 
 
     # We create a loss image in new coordinate system of 1st image from the 2nd
     image_array_loss2 = np.reshape(new_coordinates_loss_mean21, (H, W))
-    loss_image_mean = path_results + "Loss_mean_" + name_results21 + ".TIF"
+    loss_image_mean = path_results + "Loss_mean_" + name_results21 + ".tif"
     dst_ds = create_tiff(1, loss_image_mean, W, H, gdal.GDT_Float32, image_array_loss2, geo, proj)
     dst_ds = None
 
@@ -498,7 +421,7 @@ for best_epoch in range(1, epoch_nb+1):
     image_array = np.transpose(image_array_tr, (2, 0, 1))
     for b in range(len(list(image_array))):
         image_array[b] = image_array[b] * (list_norm[b][1] - list_norm[b][0]) + list_norm[b][0]
-    reprojected_image = path_results + "Encoded_decoded_" + name_results21 + ".TIF"
+    reprojected_image = path_results + "Encoded_decoded_" + name_results21 + ".tif"
     dst_ds = create_tiff(bands_nb, reprojected_image, W, H, gdal.GDT_Int16, image_array, geo, proj)
     dst_ds = None
 

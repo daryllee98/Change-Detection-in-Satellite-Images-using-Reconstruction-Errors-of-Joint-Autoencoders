@@ -43,7 +43,8 @@ print("ON GPU is "+str(gpu))
 #Parameters
 patch_size = 5
 bands_to_keep = 4   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
-epoch_nb = 5
+# Keeping R,G, B and NIR bands for Sentinel 2
+epoch_nb = 1
 batch_size = 150
 learning_rate = 0.0005
 weighted = False    # if we weight patches loss (center pixel has higher loss)
@@ -88,7 +89,7 @@ for image_name_with_extention in images_list:
                     image_array = np.delete(image_array, [3,7], axis=0)
                     bands_nb = 6
             if satellite == "S2":
-                image_array = np.delete(image_array, [0,4,5,6,8,9,10,11,12], axis=0)
+                image_array = np.delete(image_array, [0,4,5,6,8,9,10,11,12], axis=0) #delete the other 9 bands. S2 has 13 bands in total
                 bands_nb = 4
                 print(np.shape(image_array))
         image_extended = extend(image_array, patch_size)    # We mirror the border rows and cols
@@ -98,7 +99,7 @@ list_image_extended = np.asarray(list_image_extended, dtype=float)
 
 # We normalize all the images from 0 to 1 (1 is the max value of the whole dataset, not an individual image)
 list_norm = []
-print(len(list_image_extended[0]))
+print('Number of bands left:', len(list_image_extended[0]))
 for band in range(len(list_image_extended[0])):
     all_images_band = list_image_extended[:, band, :, :].flatten()
     min = np.min(all_images_band)
@@ -108,7 +109,7 @@ for i in range(len(list_image_extended)):
     for band in range(len(list_image_extended[0])):
         list_image_extended[i][band] = (list_image_extended[i][band]-list_norm[band][0])/(list_norm[band][1]-list_norm[band][0])
 
-print('finished loading')
+print('finished image processing')
 
 driver_tiff = gdal.GetDriverByName("GTiff")
 driver_shp = ogr.GetDriverByName("ESRI Shapefile")

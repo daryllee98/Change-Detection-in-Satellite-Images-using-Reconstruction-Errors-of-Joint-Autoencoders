@@ -74,7 +74,7 @@ def otsu(image_array_loss1, image_array_loss2, H, W, geo, proj, path_results, im
     image_array_outliers = np.zeros(H*W)
     image_array_outliers[image_array_loss.flatten() > val] = 1
     outliers_image_mean = "Outliers_average_" + images_date + "_" +str(threshold)
-    dst_ds = create_tiff(1, path_results+ "/"+outliers_image_mean + ".TIF", W, H, gdal.GDT_Int16, np.reshape(image_array_outliers, (H, W)), geo, proj)
+    dst_ds = create_tiff(1, path_results+ "/"+outliers_image_mean + ".tif", W, H, gdal.GDT_Int16, np.reshape(image_array_outliers, (H, W)), geo, proj)
     vectorize_tiff(path_results, "/"+outliers_image_mean, dst_ds)
     dst_ds = None
 
@@ -126,7 +126,7 @@ def otsu_independent(image_array_loss1, image_array_loss2, H, W, geo, proj, path
 
     # We write tiff and shp
     outliers_image_mean = "Outliers_average_" + images_date + "_independent_" +str(threshold)
-    dst_ds = create_tiff(1, path_results+ "/"+outliers_image_mean + ".TIF", W, H, gdal.GDT_Int16, np.reshape(image_array_outliers, (H, W)), geo, proj)
+    dst_ds = create_tiff(1, path_results+ "/"+outliers_image_mean + ".tif", W, H, gdal.GDT_Int16, np.reshape(image_array_outliers, (H, W)), geo, proj)
     vectorize_tiff(path_results, "/"+outliers_image_mean, dst_ds)
     dst_ds = None
 
