@@ -347,8 +347,8 @@ for best_epoch in range(1, epoch_nb+1):
     best_decoder21.eval()
     for batch_idx, (data1, data2, _) in enumerate(loader):  # we load batches from model
         if gpu:
-            data1 = data1.cuda(async=True)
-            data2 = data2.cuda(async=True)
+            data1 = data1.cuda(non_blocking=True)
+            data2 = data2.cuda(non_blocking=True)
         encoded12 = best_encoder12(Variable(data1))
         decoded12 = best_decoder12(encoded12)
         encoded21 = best_encoder21(Variable(data2))
