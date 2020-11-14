@@ -69,17 +69,14 @@ create_dir(path_model)
 # We open all the images of time series images and mirror the borders.
 # Then we create 4D array with all the images of the dataset
 images_list = os.listdir(path_datasets)
-print(images_list)
 path_list = []
 list_image_extended= []
 for image_name_with_extention in images_list:
     if image_name_with_extention.endswith(".tif"):
-        print("here")
         img_path = path_datasets + image_name_with_extention
         print(os.path.splitext(image_name_with_extention)[0])
         path_list.append(img_path)
         image_array, H, W, geo, proj, bands_nb = open_tiff(path_datasets, os.path.splitext(image_name_with_extention)[0])
-        print(image_array)
         # We keep only essential bands if needed
         if bands_to_keep==3:
             if satellite == "SPOT5":
