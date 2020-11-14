@@ -73,7 +73,7 @@ print(images_list)
 path_list = []
 list_image_extended= []
 for image_name_with_extention in images_list:
-    if image_name_with_extention.endswith(".TIF") and not image_name_with_extention.endswith("band.TIF"):
+    if image_name_with_extention.endswith(".tif"):
         print("here")
         img_path = path_datasets + image_name_with_extention
         print(os.path.splitext(image_name_with_extention)[0])
