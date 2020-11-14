@@ -105,6 +105,7 @@ for i in range(len(list_image_extended)):
     for band in range(len(list_image_extended[0])):
         list_image_extended[i][band] = (list_image_extended[i][band]-list_norm[band][0])/(list_norm[band][1]-list_norm[band][0])
 
+print('finished loading')
 
 driver_tiff = gdal.GetDriverByName("GTiff")
 driver_shp = ogr.GetDriverByName("ESRI Shapefile")
