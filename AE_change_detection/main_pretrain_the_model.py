@@ -56,7 +56,7 @@ satellite = "S2" # ["SPOT5", "S2"]
 start_time = time.clock()
 run_name = "."+str(time.strftime("%Y-%m-%d_%H%M"))
 print (run_name)
-
+print(epoch_nb)
 
 # We define the input and output paths
 folder_results = "All_images_ep_" + str(epoch_nb) + "_patch_" + str(patch_size) +"_fc"+ run_name
