@@ -41,16 +41,16 @@ def vectorize_tiff(main_path, shp_name, ds_tiff):
 
 # Open GeoTIFF as an array
 def open_tiff(path, name):
-    ds = gdal.Open(path+"/"+name+".TIF")
+    ds = gdal.Open(path+"/"+name+".tif")
     geo = ds.GetGeoTransform()
     proj = ds.GetProjection()
     bands_nb = ds.RasterCount
     W = ds.RasterXSize
     H = ds.RasterYSize
     try:
-        image_array = gdal_array.LoadFile(path + "/" + name+".TIF")
+        image_array = gdal_array.LoadFile(path + "/" + name+".tif")
     except:
-        image_array = gdal_array.LoadFile(path + name+".TIF")
+        image_array = gdal_array.LoadFile(path + name+".tif")
     ds = None
     return np.asarray(image_array), H, W, geo, proj, bands_nb
 
@@ -96,6 +96,6 @@ def encode_image(encoder, loader, batch_size, nb_features, gpu, H, W, geo, proj,
     image_array_tr = np.reshape(new_coordinates, (H, W, nb_features))
     image_array = np.transpose(image_array_tr, (2, 0, 1))
     reprojected_image_name = name_results
-    reprojected_image = path_results + "Encoded_" + reprojected_image_name + ".TIF"
+    reprojected_image = path_results + "Encoded_" + reprojected_image_name + ".tif"
     dst_ds = create_tiff(nb_features, reprojected_image, W, H, gdal.GDT_Float32, image_array, geo, proj)
     dst_ds = None
