@@ -76,7 +76,7 @@ loss_model = 1.72e-05   #loss of the best epoch (taken from the .pkl file)
 #folder_pretrained_results = "All_images_ep_5_patch_5_fc.2019-04-23_1505/" #folder for the concrete model
 
 path_models = os.path.expanduser('../../../input/mauritius-dataset/results_5/Change-Detection-in-Satellite-Images-using-Reconstruction-Errors-of-Joint-Autoencoders/AE_change_detection/S2_all_images_model_pretrained/') # Path for all pretrained models
-folder_pretrained_results = "All_images_ep_5_patch_5_fc.2020-11-14_1715/" #folder for the concrete model
+folder_pretrained_results = "All_images_ep_5_patch_5_fc.2020-11-15_1808/" #folder for the concrete model
 
 # Input and output data paths
 path_datasets = os.path.expanduser('../../../input/mauritius-dataset/tif_files2/')
