@@ -57,7 +57,7 @@ image_date2 = image_name2
 #The parameters for the model
 patch_size = 5
 bands_to_keep = 4   # G, R, B and NIR band for Sentinel
-epoch_nb = 1
+epoch_nb = 5
 batch_size = 150
 learning_rate = 0.00005
 weighted = False    # if we weight patches loss (center pixel has higher loss)
@@ -68,14 +68,14 @@ satellite = "S2" # ["SPOT5", "S2"]
 
 
 # Path for pretrained model
-reference_model = "2020-11-14_1715" # unique "time" of the model
-epoch_model = 1     # best epoch
-loss_model = 7.82e-05   #loss of the best epoch (taken from the .pkl file)
+reference_model = "2020-11-15_1808" # unique "time" of the model
+epoch_model = 5     # best epoch
+loss_model = 1.72e-05   #loss of the best epoch (taken from the .pkl file)
 # '../../../input/
 #path_models = os.path.expanduser('~/Desktop/Results/RESULTS_CHANGE_DETECTION/OUTLIERS/NN_Montpellier_SPOT5_all_images_model_pretrained/') # Path for all pretrained models
 #folder_pretrained_results = "All_images_ep_5_patch_5_fc.2019-04-23_1505/" #folder for the concrete model
 
-path_models = os.path.expanduser('../../../input/mauritius-dataset/results/Change-Detection-in-Satellite-Images-using-Reconstruction-Errors-of-Joint-Autoencoders/AE_change_detection/S2_all_images_model_pretrained/') # Path for all pretrained models
+path_models = os.path.expanduser('../../../input/mauritius-dataset/results_5/Change-Detection-in-Satellite-Images-using-Reconstruction-Errors-of-Joint-Autoencoders/AE_change_detection/S2_all_images_model_pretrained/') # Path for all pretrained models
 folder_pretrained_results = "All_images_ep_1_patch_5_fc.2020-11-14_1715/" #folder for the concrete model
 
 # Input and output data paths
