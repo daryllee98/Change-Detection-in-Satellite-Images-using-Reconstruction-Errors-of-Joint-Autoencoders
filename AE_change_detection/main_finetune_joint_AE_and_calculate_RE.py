@@ -68,18 +68,18 @@ satellite = "S1" # ["SPOT5", "S2"]
 
 
 # Path for pretrained model
-reference_model = "2020-11-15_1808" # unique "time" of the model
+reference_model = "2020-11-19_2231" # unique "time" of the model
 epoch_model = 5     # best epoch
-loss_model = 1.72e-05   #loss of the best epoch (taken from the .pkl file)
+loss_model = 3.71e-05   #loss of the best epoch (taken from the .pkl file)
 # '../../../input/
 #path_models = os.path.expanduser('~/Desktop/Results/RESULTS_CHANGE_DETECTION/OUTLIERS/NN_Montpellier_SPOT5_all_images_model_pretrained/') # Path for all pretrained models
 #folder_pretrained_results = "All_images_ep_5_patch_5_fc.2019-04-23_1505/" #folder for the concrete model
 
-path_models = os.path.expanduser('../../../input/mauritius-dataset/results_5/Change-Detection-in-Satellite-Images-using-Reconstruction-Errors-of-Joint-Autoencoders/AE_change_detection/S2_all_images_model_pretrained/') # Path for all pretrained models
-folder_pretrained_results = "All_images_ep_5_patch_5_fc.2020-11-15_1808/" #folder for the concrete model
+path_models = os.path.expanduser('../../../input/mauritius-dataset/results/Change-Detection-in-Satellite-Images-using-Reconstruction-Errors-of-Joint-Autoencoders/AE_change_detection/S1_all_images_model_pretrained/') # Path for all pretrained models
+folder_pretrained_results = "All_images_ep_5_patch_5_fc.2020-11-19_2231/" #folder for the concrete model
 
 # Input and output data paths
-path_datasets = os.path.expanduser('../../../input/mauritius-dataset/tif_files2/')
+path_datasets = os.path.expanduser('../../../input/mauritius-dataset/Sentinel1/')
 folder_results = folder_pretrained_results + "Joint_AE_"+image_date1 + "_" +image_date2 + "_ep_" + str(epoch_nb) + "_patch_" + str(patch_size) + run_name
 path_results = os.path.expanduser('./'+str(satellite)+'_all_images_model_pretrained_/') + folder_results+"/"
 create_dir(path_results)
@@ -109,16 +109,12 @@ driver_shp = ogr.GetDriverByName("ESRI Shapefile")
 #We open a couple of images to detect changes
 image_array1, H, W, geo, proj, bands_nb = open_tiff(path_datasets, image_name1)
 image_array2, H, W, geo, proj, bands_nb = open_tiff(path_datasets, image_name2)
-if bands_to_keep == 4:
-    if satellite == "SPOT5":
-        if bands_nb==8:
-            image_array1 = np.delete(image_array1, [3, 7], axis=0)
-            image_array2 = np.delete(image_array2, [3, 7], axis=0)
-            bands_nb = 6
-        if bands_nb==4:
-            image_array1 = np.delete(image_array1, 3, axis=0)
-            image_array2 = np.delete(image_array2, 3, axis=0)
-            bands_nb = 3
+if bands_to_keep == 3:
+    if satellite == "S1":
+        image_array1 = np.delete(image_array1, [3], axis=0)
+        image_array2 = np.delete(image_array2, [3], axis=0)
+        bands_nb = 3
+        
     if satellite == "S2":
         image_array1 = np.delete(image_array1, [0,4,5,6,8,9,10,11,12], axis=0)
         image_array2 = np.delete(image_array2, [0,4,5,6,8,9,10,11,12], axis=0)
@@ -140,9 +136,10 @@ for image_name_with_extention in images_list:
         image_array, H, W, geo, proj, bands_nb = open_tiff(path_datasets, os.path.splitext(image_name_with_extention)[0])
         # We keep only essential bands if needed
         if bands_to_keep==4:
-            if satellite == "SPOT5":
-                image_array = np.delete(image_array, 3, axis=0)
+            if satellite == "S1":
+                image_array = np.delete(image_array, [3], axis=0) #delete the other 9 bands. S2 has 13 bands in total
                 bands_nb = 3
+                
             if satellite == "S2":
                 image_array = np.delete(image_array, [0,4,5,6,8,9,10,11,12], axis=0) #delete the other 9 bands. S2 has 13 bands in total
                 bands_nb = 4
