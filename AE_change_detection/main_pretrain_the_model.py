@@ -44,7 +44,7 @@ print("ON GPU is "+str(gpu))
 patch_size = 5
 bands_to_keep = 3   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
 # Keeping R,G, B and NIR bands for Sentinel 2
-epoch_nb = 1
+epoch_nb = 5
 batch_size = 150
 learning_rate = 0.0005
 weighted = False    # if we weight patches loss (center pixel has higher loss)
@@ -55,6 +55,7 @@ satellite = "S1" # ["SPOT5", "S2"]
 
 start_time = time.clock()
 run_name = "."+str(time.strftime("%Y-%m-%d_%H%M"))
+#run_name = ".19112020"
 print (run_name)
 print(epoch_nb)
 

@@ -43,10 +43,10 @@ print (run_name)
 
 #Here are the names of the couples of images
 # #Sentinel2 image
-image_name1 = '20200717'
+image_name1 = '2020-07-29'
 image_date1 = image_name1
 #image_date1 = (re.search("_([0-9]*)_", image_name1)).group(1)
-image_name2 = '20200816'
+image_name2 = '2020-08-10'
 image_date2 = image_name2
 #image_date2 = (re.search("_([0-9]*)_", image_name2)).group(1)
 
@@ -56,7 +56,7 @@ image_date2 = image_name2
 
 #The parameters for the model
 patch_size = 5
-bands_to_keep = 4   # G, R, B and NIR band for Sentinel
+bands_to_keep = 3   # G, R, B and NIR band for Sentinel
 epoch_nb = 5
 batch_size = 150
 learning_rate = 0.00005
@@ -64,7 +64,7 @@ weighted = False    # if we weight patches loss (center pixel has higher loss)
 sigma = 2           # sigma for weighted loss
 shuffle = True      # shuffle patches before training
 sampleTrue = False  # if we train the model with all the patches or only with samles
-satellite = "S2" # ["SPOT5", "S2"]
+satellite = "S1" # ["SPOT5", "S2"]
 
 
 # Path for pretrained model
