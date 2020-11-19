@@ -42,15 +42,15 @@ print("ON GPU is "+str(gpu))
 
 #Parameters
 patch_size = 5
-bands_to_keep = 4   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
+bands_to_keep = 3   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
 # Keeping R,G, B and NIR bands for Sentinel 2
-epoch_nb = 5
+epoch_nb = 1
 batch_size = 150
 learning_rate = 0.0005
 weighted = False    # if we weight patches loss (center pixel has higher loss)
 sigma = 2           # sigma for weighted loss
 shuffle = True      # shuffle patches before training
-satellite = "S2" # ["SPOT5", "S2"]
+satellite = "S1" # ["SPOT5", "S2"]
 
 
 start_time = time.clock()
@@ -61,7 +61,7 @@ print(epoch_nb)
 # We define the input and output paths
 folder_results = "All_images_ep_" + str(epoch_nb) + "_patch_" + str(patch_size) +"_fc"+ run_name
 path_results = os.path.expanduser('./'+str(satellite)+'_all_images_model_pretrained/') + folder_results + "/"
-path_datasets = os.path.expanduser('../../../input/mauritius-dataset/tif_files2/')
+path_datasets = os.path.expanduser('../../../input/mauritius-dataset/Sentinel1/')
 create_dir(path_results)
 path_model = path_results + 'model'+run_name+"/" #we will save the pretrained encoder/decoder models here
 create_dir(path_model)
@@ -80,14 +80,11 @@ for image_name_with_extention in images_list:
         image_array, H, W, geo, proj, bands_nb = open_tiff(path_datasets, os.path.splitext(image_name_with_extention)[0])
         print(bands_nb)
         # We keep only essential bands if needed
-        if bands_to_keep==4:
-            if satellite == "SPOT5":
-                if bands_nb==4:
-                    image_array = np.delete(image_array, 3, axis=0)
-                    bands_nb = 3
-                if bands_nb==8:
-                    image_array = np.delete(image_array, [3,7], axis=0)
-                    bands_nb = 6
+        if bands_to_keep==3:
+            if satellite == "S1":
+                image_array = np.delete(image_array, [3], axis=0) #delete the other 9 bands. S2 has 13 bands in total
+                bands_nb = 3
+                print(np.shape(image_array))
             if satellite == "S2":
                 image_array = np.delete(image_array, [0,4,5,6,8,9,10,11,12], axis=0) #delete the other 9 bands. S2 has 13 bands in total
                 bands_nb = 4
