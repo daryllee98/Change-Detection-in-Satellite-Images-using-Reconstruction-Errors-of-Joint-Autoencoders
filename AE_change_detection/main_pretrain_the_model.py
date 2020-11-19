@@ -42,7 +42,7 @@ print("ON GPU is "+str(gpu))
 
 #Parameters
 patch_size = 5
-bands_to_keep = 1   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
+bands_to_keep = 3   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
 # Keeping R,G, B and NIR bands for Sentinel 2
 epoch_nb = 1
 batch_size = 150
@@ -80,7 +80,7 @@ for image_name_with_extention in images_list:
         image_array, H, W, geo, proj, bands_nb = open_tiff(path_datasets, os.path.splitext(image_name_with_extention)[0])
         print(bands_nb)
         # We keep only essential bands if needed
-        if bands_to_keep==1:
+        if bands_to_keep==3:
             # if satellite == "SPOT5":
             #     if bands_nb==4:
             #         image_array = np.delete(image_array, 3, axis=0)
@@ -93,8 +93,8 @@ for image_name_with_extention in images_list:
             #     bands_nb = 4
             #     print(np.shape(image_array))
             if satellite == "S1":
-                image_array = image_array
-                bands_nb = 1
+                image_array = np.delete(image_array, [3], axis=0)
+                bands_nb = 3
                 print(np.shape(image_array))
         image_extended = extend(image_array, patch_size)    # We mirror the border rows and cols
         list_image_extended.append(image_extended)
