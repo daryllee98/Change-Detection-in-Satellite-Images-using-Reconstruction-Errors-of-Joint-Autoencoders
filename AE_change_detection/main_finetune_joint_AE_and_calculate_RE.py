@@ -57,7 +57,7 @@ image_date2 = image_name2
 #The parameters for the model
 patch_size = 5
 bands_to_keep = 3   # G, R, B and NIR band for Sentinel
-epoch_nb = 5
+epoch_nb = 1
 batch_size = 150
 learning_rate = 0.00005
 weighted = False    # if we weight patches loss (center pixel has higher loss)
@@ -135,7 +135,7 @@ for image_name_with_extention in images_list:
         path_list.append(img_path)
         image_array, H, W, geo, proj, bands_nb = open_tiff(path_datasets, os.path.splitext(image_name_with_extention)[0])
         # We keep only essential bands if needed
-        if bands_to_keep==4:
+        if bands_to_keep==3:
             if satellite == "S1":
                 image_array = np.delete(image_array, [3], axis=0) #delete the other 9 bands. S2 has 13 bands in total
                 bands_nb = 3
