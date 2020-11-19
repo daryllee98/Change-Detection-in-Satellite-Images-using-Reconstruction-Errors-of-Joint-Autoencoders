@@ -84,7 +84,7 @@ for image_name_with_extention in images_list:
             if satellite == "S1":
                 #image_array = image_array
                 image_array = np.delete(image_array, [3], axis=0) #delete the other 9 bands. S2 has 13 bands in total
-                bands_nb = 4
+                bands_nb = 3
                 print(np.shape(image_array))
             if satellite == "S2":
                 image_array = np.delete(image_array, [0,4,5,6,8,9,10,11,12], axis=0) #delete the other 9 bands. S2 has 13 bands in total
