@@ -91,9 +91,9 @@ for image_name_with_extention in images_list:
                 bands_nb = 4
                 print(np.shape(image_array))
         image_extended = extend(image_array, patch_size)    # We mirror the border rows and cols
-        print(np.shape(image_extended))
+        #print(np.shape(image_extended))
         list_image_extended.append(image_extended)
-        print(np.shape(list_image_extended))
+        #print(np.shape(list_image_extended))
 list_image_extended = np.asarray(list_image_extended, dtype=float)
 
 
