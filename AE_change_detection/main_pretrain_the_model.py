@@ -56,8 +56,8 @@ satellite = "S1" # ["SPOT5", "S2"]
 start_time = time.clock()
 run_name = "."+str(time.strftime("%Y-%m-%d_%H%M"))
 #run_name = ".19112020"
-print (run_name)
-print(epoch_nb)
+print ('run_name', run_name)
+print('Number of epochs to train for:', epoch_nb)
 
 # We define the input and output paths
 folder_results = "All_images_ep_" + str(epoch_nb) + "_patch_" + str(patch_size) +"_fc"+ run_name
@@ -174,7 +174,7 @@ f.close()
 
 # calculate the weights if the patch loss is weighted
 weight = torch.from_numpy(gkern2(patch_size, sigma)).float().expand(batch_size, bands_nb, patch_size, patch_size)
-print(Variable(weight).size())
+print('weight', Variable(weight).size())
 if gpu:
     weight = weight.cuda()
 
@@ -192,7 +192,7 @@ def train(epoch):
             data = data.cuda(non_blocking=True)
         encoded = encoder(Variable(data))
         decoded = decoder(encoded)
-        print(decoded.size())
+        print('decoded', decoded.size())
 
         # we calculate batch loss to optimize the model
         if weighted:
