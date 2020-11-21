@@ -57,7 +57,7 @@ image_date2 = image_name2
 #The parameters for the model
 patch_size = 7
 bands_to_keep = 3   # G, R, B and NIR band for Sentinel
-epoch_nb = 1
+epoch_nb = 5
 batch_size = 150
 learning_rate = 0.00005
 weighted = True    # if we weight patches loss (center pixel has higher loss)
