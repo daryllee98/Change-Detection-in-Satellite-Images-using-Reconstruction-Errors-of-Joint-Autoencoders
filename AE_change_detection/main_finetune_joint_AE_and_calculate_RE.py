@@ -55,7 +55,7 @@ image_date2 = image_name2
 #Parameters
 
 #The parameters for the model
-patch_size = 7
+patch_size = 9
 bands_to_keep = 3   # G, R, B and NIR band for Sentinel
 epoch_nb = 5
 batch_size = 150
