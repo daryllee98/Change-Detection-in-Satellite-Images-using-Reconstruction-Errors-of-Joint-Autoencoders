@@ -10,7 +10,7 @@ from osgeo import gdal, ogr
 import scipy.ndimage.filters as fi
 
 
-from models.AE_fully_convolutional_model import Encoder, Decoder    #we chose fully_conv or conv model
+from models.AE_convolutional_model import Encoder, Decoder    #we chose fully_conv or conv model
 from codes.imgtotensor_patches_samples_list import ImageDataset
 from codes.image_processing import extend, open_tiff
 from codes.loader import dsloader
@@ -41,13 +41,13 @@ print("ON GPU is "+str(gpu))
 
 
 #Parameters
-patch_size = 5
+patch_size = 7
 bands_to_keep = 3   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
 # Keeping R,G, B and NIR bands for Sentinel 2
 epoch_nb = 5
 batch_size = 150
 learning_rate = 0.0005
-weighted = True    # if we weight patches loss (center pixel has higher loss)
+weighted = False    # if we weight patches loss (center pixel has higher loss)
 sigma = 2           # sigma for weighted loss
 shuffle = True      # shuffle patches before training
 satellite = "S1" # ["SPOT5", "S2"]
