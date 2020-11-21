@@ -55,7 +55,7 @@ image_date2 = image_name2
 #Parameters
 
 #The parameters for the model
-patch_size = 9
+patch_size = 5
 bands_to_keep = 3   # G, R, B and NIR band for Sentinel
 epoch_nb = 5
 batch_size = 150
@@ -68,9 +68,9 @@ satellite = "S1" # ["SPOT5", "S2"]
 
 
 # Path for pretrained model
-reference_model = "2020-11-21_1754" # unique "time" of the model
+reference_model = "2020-11-21_1950" # unique "time" of the model
 epoch_model = 5     # best epoch
-loss_model = 0.0001428   #loss of the best epoch (taken from the .pkl file)
+loss_model = 0.0006072   #loss of the best epoch (taken from the .pkl file)
 # '../../../input/
 #path_models = os.path.expanduser('~/Desktop/Results/RESULTS_CHANGE_DETECTION/OUTLIERS/NN_Montpellier_SPOT5_all_images_model_pretrained/') # Path for all pretrained models
 #folder_pretrained_results = "All_images_ep_5_patch_5_fc.2019-04-23_1505/" #folder for the concrete model
