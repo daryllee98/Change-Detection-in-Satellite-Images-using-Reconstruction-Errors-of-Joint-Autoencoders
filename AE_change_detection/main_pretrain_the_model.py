@@ -174,7 +174,7 @@ f.close()
 
 # calculate the weights if the patch loss is weighted
 weight = torch.from_numpy(gkern2(patch_size, sigma)).float().expand(batch_size, bands_nb, patch_size, patch_size)
-print('weight', Variable(weight).size())
+#print('weight', Variable(weight).size())
 if gpu:
     weight = weight.cuda()
 
@@ -192,7 +192,7 @@ def train(epoch):
             data = data.cuda(non_blocking=True)
         encoded = encoder(Variable(data))
         decoded = decoder(encoded)
-        print('decoded', decoded.size())
+        #print('decoded', decoded.size())
 
         # we calculate batch loss to optimize the model
         if weighted:
