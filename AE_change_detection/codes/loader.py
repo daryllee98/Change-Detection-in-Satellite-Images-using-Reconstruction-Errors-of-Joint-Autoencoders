@@ -8,14 +8,14 @@ def dsloader(image, gpu, batch_size, shuffle):
                             shuffle=shuffle,
                             num_workers=4,  # 1 for CUDA
                             pin_memory=True,  # CUDA only
-                            drop_last=False
+                            drop_last=True
                             )
     else:
         loader = DataLoader(image,
                             batch_size=batch_size,
                             shuffle=shuffle,
                             num_workers=0,  # 1 for CUDA
-                            drop_last=False
+                            drop_last=True
                             )
     return loader
 
