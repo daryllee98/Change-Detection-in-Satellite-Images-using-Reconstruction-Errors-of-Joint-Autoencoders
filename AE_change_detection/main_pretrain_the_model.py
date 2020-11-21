@@ -41,7 +41,7 @@ print("ON GPU is "+str(gpu))
 
 
 #Parameters
-patch_size = 9
+patch_size = 5
 bands_to_keep = 3   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
 # Keeping R,G, B and NIR bands for Sentinel 2
 epoch_nb = 5
