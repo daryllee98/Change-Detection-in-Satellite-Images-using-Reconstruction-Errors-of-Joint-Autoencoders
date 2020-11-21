@@ -44,7 +44,7 @@ print("ON GPU is "+str(gpu))
 patch_size = 7
 bands_to_keep = 3   # 4 if we keep SWIR band for SPOT or Blue band for Sentinel. Otherwise, if wee keep 3 bands, it's G, R, NIR
 # Keeping R,G, B and NIR bands for Sentinel 2
-epoch_nb = 5
+epoch_nb = 1
 batch_size = 150
 learning_rate = 0.0005
 weighted = True    # if we weight patches loss (center pixel has higher loss)
@@ -174,6 +174,7 @@ f.close()
 
 # calculate the weights if the patch loss is weighted
 weight = torch.from_numpy(gkern2(patch_size, sigma)).float().expand(batch_size, bands_nb, patch_size, patch_size)
+print(Variable(weight).size())
 if gpu:
     weight = weight.cuda()
 
@@ -191,6 +192,7 @@ def train(epoch):
             data = data.cuda(non_blocking=True)
         encoded = encoder(Variable(data))
         decoded = decoder(encoded)
+        print(decoded.size())
 
         # we calculate batch loss to optimize the model
         if weighted:
